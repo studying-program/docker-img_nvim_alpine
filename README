@@ -1,0 +1,42 @@
+# Dockerfile README
+
+この`Dockerfile`は、**Alpine Linux**をベースに、`tmux`や`neovim`などの開発ツールと日本語環境をセットアップするための軽量なコンテナ環境を構築します。
+
+### 含まれるツールと設定
+
+  - **ベースイメージ**: `alpine:latest`
+  - **インストールされるツール**:
+      - `git`: バージョン管理システム
+      - `curl`: URLからデータを転送するツール
+      - `xfce4-terminal`: ターミナルエミュレータ
+      - `tmux`: 複数のターミナルセッションを管理するツール
+      - `neovim`: 高機能なテキストエディタ
+      - `bash`: より機能的なシェル
+  - **日本語環境**:
+      - `musl-locales`と`musl-locales-lang`をインストールし、`LANG=ja_JP.UTF-8`と`LC_ALL=ja_JP.UTF-8`の環境変数を設定しています。
+  - **プラグインマネージャー**:
+      - `tmux`のプラグインマネージャーである\*\*TPM (Tmux Plugin Manager)\*\*がインストールされます。
+
+-----
+
+### 使用方法
+
+#### 1\. Dockerイメージのビルド
+
+以下のコマンドを実行して、この`Dockerfile`からDockerイメージをビルドします。
+
+```bash
+docker build -t my-dev-image .
+```
+
+`my-dev-image`は任意のイメージ名に変更できます。
+
+#### 2\. コンテナの起動
+
+ビルドしたイメージからコンテナを起動し、`/bin/bash`シェルに入ります。
+
+```bash
+docker run -it my-dev-image
+```
+
+このコマンドにより、すぐに開発作業を開始できる環境が利用可能になります。
