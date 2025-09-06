@@ -21,5 +21,8 @@ ENV LC_ALL=ja_JP.UTF-8
 # TPMをインストールする
 RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# READMEファイルをコピーしてあとから確認
+COPY ./README /root/
+
 # コンテナ起動時に実行されるコマンド
 CMD ["/bin/bash"]
